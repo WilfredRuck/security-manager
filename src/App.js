@@ -1,25 +1,32 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
   render() {
+    const securities = [];
+    [1,2,3].forEach((val) => {
+      securities.push(
+      <li key={val} className="security-item">
+        <p className="security-name">Security Name</p>
+        <div className="security-attr">
+          <p>ISIN#</p>
+          <p>Country</p>
+          <p>Prices</p>
+          <p>Edit</p>
+        </div>
+      </li>
+    )
+      });
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div className="app">
+          <div>
+            <h2>Securities</h2>
+            <ul className="security-items">
+              {securities}
+            </ul>
+            <button className="add">Add</button>
+          </div>
+          
       </div>
     );
   }
