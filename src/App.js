@@ -1,7 +1,21 @@
 import React, { Component } from 'react';
+import Modal from './modal';
 import './App.css';
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = { show: false };
+  }
+
+  showModal = () => {
+    this.setState({ show: true });
+  };
+
+  hideModal = () => {
+    this.setState({ show: false });
+  };
+
   render() {
     const securities = [];
     [1,2,3].forEach((val) => {
@@ -21,10 +35,14 @@ class App extends Component {
       <div className="app">
           <div>
             <h2>Securities</h2>
+            <Modal show={this.state.show} handleClose={this.hideModal}>
+              <p>Modal</p>
+              <p>Data</p>
+            </Modal>
             <ul className="security-items">
               {securities}
             </ul>
-            <button className="add">Add</button>
+            <button className="add" onClick={this.showModal}>Add</button>
           </div>
           
       </div>
