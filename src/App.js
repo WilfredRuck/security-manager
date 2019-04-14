@@ -16,12 +16,12 @@ class App extends Component {
     this.setState({ show: false });
   };
 
-  addSecurity = () => {
+  addSecurity = (name, isin, country) => {
     const newSecurityState = this.state.securities.concat(<li key={this.state.securities.length + 1} className="security-item">
-      <p className="security-name">Security Name</p>
+      <p className="security-name">{name}</p>
       <div className="security-attr">
-        <p>ISIN#</p>
-        <p>Country</p>
+        <p>{isin}</p>
+        <p>{country}</p>
         <p>Prices</p>
         <p>Edit</p>
       </div>
@@ -30,21 +30,6 @@ class App extends Component {
   }
 
   render() {
-    if (this.state.securities.length < 3) {
-      [1,2,3].forEach((val) => {
-        this.state.securities.push(
-          <li key={val} className="security-item">
-            <p className="security-name">Security Name</p>
-            <div className="security-attr">
-              <p>ISIN#</p>
-              <p>Country</p>
-              <p>Prices</p>
-              <p>Edit</p>
-            </div>
-          </li>
-        )
-      });
-    }
     return (
       <div className="app">
           <div>
