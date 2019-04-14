@@ -5,10 +5,10 @@ import './App.css';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = { show: false };
+    this.state = { show: false, securities: [] };
   }
 
-  showModal = () => {
+  showModal = (e) => {
     this.setState({ show: true });
   };
 
@@ -16,33 +16,47 @@ class App extends Component {
     this.setState({ show: false });
   };
 
+  addSecurity = () => {
+    const newSecurityState = this.state.securities.concat(<li key={this.state.securities.length + 1} className="security-item">
+      <p className="security-name">Security Name</p>
+      <div className="security-attr">
+        <p>ISIN#</p>
+        <p>Country</p>
+        <p>Prices</p>
+        <p>Edit</p>
+      </div>
+    </li>);
+    this.setState({ securities: newSecurityState});
+  }
+
   render() {
-    const securities = [];
-    [1,2,3].forEach((val) => {
-      securities.push(
-      <li key={val} className="security-item">
-        <p className="security-name">Security Name</p>
-        <div className="security-attr">
-          <p>ISIN#</p>
-          <p>Country</p>
-          <p>Prices</p>
-          <p>Edit</p>
-        </div>
-      </li>
-    )
+    if (this.state.securities.length < 3) {
+      [1,2,3].forEach((val) => {
+        this.state.securities.push(
+          <li key={val} className="security-item">
+            <p className="security-name">Security Name</p>
+            <div className="security-attr">
+              <p>ISIN#</p>
+              <p>Country</p>
+              <p>Prices</p>
+              <p>Edit</p>
+            </div>
+          </li>
+        )
       });
+    }
     return (
       <div className="app">
           <div>
             <h2>Securities</h2>
-            <Modal show={this.state.show} handleClose={this.hideModal}>
+            <Modal show={this.state.show} handleClose={this.hideModal} addSecurity={this.addSecurity}>
               <p>Modal</p>
               <p>Data</p>
             </Modal>
             <ul className="security-items">
-              {securities}
+              {this.state.securities}
             </ul>
-            <button className="add" onClick={this.showModal}>Add</button>
+            <button className="add" onClick={(e) => this.showModal(e)}>Add</button>
           </div>
           
       </div>
