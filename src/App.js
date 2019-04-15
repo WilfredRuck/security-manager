@@ -8,7 +8,7 @@ class App extends Component {
     this.state = { show: false, securities: [] };
   }
 
-  showModal = (e) => {
+  showModal = () => {
     this.setState({ show: true });
   };
 
@@ -42,7 +42,7 @@ class App extends Component {
             <ul className="security-items">
               {this.state.securities}
             </ul>
-            <button className="add" onClick={(e) => this.showModal(e)}>Add</button>
+            <button className="add" onClick={this.showModal}>Add</button>
           </div>
           
       </div>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-const Modal = ({ handleClose, show, children, addSecurity }) => {
+const Modal = ({ handleClose, show, addSecurity }) => {
   const showHideClassName = show ? "modal display-block" : "modal display-none";
   const [name, setName] = useState("");
   const [isin, setIsin] = useState("");
@@ -25,7 +25,6 @@ const Modal = ({ handleClose, show, children, addSecurity }) => {
             </label>
           </div>
         </div>
-        {/* {children} */}
         <div className="button-section">
           <p onClick={handleClose}>Cancel</p>
           <p onClick={() => { addSecurity(name, isin, country); handleClose();}}>Save</p>
