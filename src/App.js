@@ -17,13 +17,14 @@ class App extends Component {
   };
 
   addSecurity = (name, isin, country) => {
+    if ((name === "") || (isin === "") || (country === "")) return;
     const newSecurityState = this.state.securities.concat(<li key={this.state.securities.length + 1} className="security-item">
       <p className="security-name">{name}</p>
       <div className="security-attr">
         <p>{isin}</p>
         <p>{country}</p>
-        <p>Prices</p>
-        <p>Edit</p>
+        <p><a href="#">Prices</a></p>
+        <p><a href="#">Edit</a></p>
       </div>
     </li>);
     this.setState({ securities: newSecurityState});

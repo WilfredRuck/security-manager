@@ -9,19 +9,27 @@ const Modal = ({ handleClose, show, children, addSecurity }) => {
   return (
     <div className={showHideClassName}>
       <section className="modal-main">
-        <p className="modal-title">Add Security</p>
-        <label> Name
-          <input onChange={(e) => setName(e.currentTarget.value)}></input>
-        </label>
-        <label> ISIN
-          <input onChange={(e) => setIsin(e.currentTarget.value)}></input>
-        </label>
-        <label> Country
-          <input onChange={(e) => setCountry(e.currentTarget.value)}></input>
-        </label>
+        <div className="modal-info">
+          <p className="modal-title">Add Security</p>
+          <div className="nameAndIsin">
+            <label className="name"> Name
+              <input onChange={(e) => setName(e.currentTarget.value)}></input>
+            </label>
+            <label className="isin"> ISIN
+              <input onChange={(e) => setIsin(e.currentTarget.value)}></input>
+            </label>
+          </div>
+          <div>
+            <label> Country<br/>
+              <input onChange={(e) => setCountry(e.currentTarget.value)}></input>
+            </label>
+          </div>
+        </div>
         {/* {children} */}
-        <button onClick={handleClose}>close</button>
-        <button onClick={() => { addSecurity(name, isin, country); handleClose();}}>Save</button>
+        <div className="button-section">
+          <p onClick={handleClose}>Cancel</p>
+          <p onClick={() => { addSecurity(name, isin, country); handleClose();}}>Save</p>
+        </div>
       </section>
     </div>
   );

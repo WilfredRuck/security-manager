@@ -3,15 +3,19 @@
   width: 50%;
 }
 
+h2 {
+  margin-bottom: 0;
+}
+
 .security-items {
-  display: inline;
+  display: contents;
 }
 
 .security-item {
   border: 1.5px solid #7D7D7D;
   padding: 10px 25px 15px 25px;
   color: black;
-  margin-bottom: 20px;
+  margin-top: 20px;
   list-style: none;
 }
 
@@ -26,12 +30,18 @@
   justify-content: space-between;
 }
 
+a {
+  color: black;
+}
+
 .add {
   background-color: #ffffff;
   border: 1.5px solid #7D7D7D;
   font-size: 18px;
   padding: 12px 35px 12px 35px;
   outline: none;
+  cursor: pointer;
+  margin-top: 20px;
 }
 
 .modal {
@@ -46,16 +56,56 @@
 .modal-main {
   position:fixed;
   background: white;
-  width: 80%;
   height: auto;
   top:50%;
   left:50%;
   transform: translate(-50%,-50%);
 }
 
+.modal-main .nameAndIsin {
+  display: flex;
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+.modal-main .name {
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+}
+
+input {
+  padding: 5px;
+  font-size: 15px;
+  border-radius: 2px;
+  border: 1px solid black;
+}
+
+.modal-main .isin {
+  display: flex;
+  flex-direction: column;
+  margin-right: 15px;
+}
+
+.modal-main .button-section {
+  display: flex;
+  justify-content: flex-end;
+  border-top: 1px solid black;
+}
+
+.modal-main .button-section p {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  cursor: pointer;
+  margin-right: 20px;
+}
+
+.modal-info {
+  padding: 20px;
+}
+
 .modal-title {
   font-size: 18px;
-  font-weight: bold;
   margin-bottom: 0;
 }
 
